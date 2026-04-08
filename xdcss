@@ -1,23 +1,168 @@
-body{
-    margin: 0;
-    justify-content: center;
-    display: flex;
-    padding: 40px;
-    
-}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Layout 1:1</title>
 
-.blok{
-    width: 100vh;
-    height: 100vw;
-    border: 3px solid black;
-    border-radius: 15px;
-    padding: 15px;
-    box-sizing: border-box;
-    
-}
+  <style>
+    body {
+      margin: 0;
+      background: #eee;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+      font-family: Arial, sans-serif;
+    }
 
-.topbar{
-    display: grid;
-    gap: 10px;
-    margin-bottom: 15px;
-}
+    .screen {
+      width: 850px;
+      height: 650px;
+      border: 3px solid #222;
+      border-radius: 18px;
+      background: white;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+
+    /* GÓRNY PASEK */
+    .topbar {
+      display: grid;
+      grid-template-columns: 60px 120px 40px 40px 50px 1fr;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .box {
+      height: 35px;
+      border: 2px solid #222;
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    /* PANEL ŚRODKOWY */
+    .panel {
+      border: 3px solid #222;
+      border-radius: 14px;
+      height: 250px;
+      padding: 12px;
+      box-sizing: border-box;
+
+      display: grid;
+      grid-template-columns: 110px 1fr 110px;
+      gap: 12px;
+
+      margin-bottom: 15px;
+    }
+
+    .side {
+      border: 2px solid #222;
+      border-radius: 10px;
+      background: white;
+    }
+
+    .center {
+      display: grid;
+      grid-template-rows: 45px 1fr 45px;
+      gap: 12px;
+    }
+
+    /* górny pasek w środku */
+    .center-top {
+      display: grid;
+      grid-template-columns: 40px 40px 40px 1fr 40px 40px;
+      gap: 8px;
+    }
+
+    /* środkowy duży box */
+    .center-main {
+      border: 2px solid #222;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    /* małe kwadraty w środku */
+    .sq {
+      width: 18px;
+      height: 18px;
+      border: 2px solid #222;
+      border-radius: 4px;
+      position: absolute;
+    }
+
+    .sq.a { top: 18px; left: 18px; }
+    .sq.b { top: 25px; right: 25px; }
+    .sq.c { bottom: 25px; left: 60px; }
+
+    /* dolny pasek w środku */
+    .center-bottom {
+      display: grid;
+      grid-template-columns: 1fr 55px 55px 55px;
+      gap: 8px;
+    }
+
+    /* DOLNY OBSZAR */
+    .bottom {
+      border: 3px solid #222;
+      border-radius: 14px;
+      height: calc(650px - 15px - 35px - 15px - 250px - 15px - 30px);
+      background: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="screen">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+
+    <!-- PANEL -->
+    <div class="panel">
+
+      <div class="side"></div>
+
+      <div class="center">
+
+        <div class="center-top">
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+        </div>
+
+        <div class="center-main">
+          <div class="sq a"></div>
+          <div class="sq b"></div>
+          <div class="sq c"></div>
+        </div>
+
+        <div class="center-bottom">
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+        </div>
+
+      </div>
+
+      <div class="side"></div>
+
+    </div>
+
+    <!-- DÓŁ -->
+    <div class="bottom"></div>
+
+  </div>
+
+</body>
+</html>
